@@ -1,6 +1,7 @@
 package edu.matc.persistence;
 
 import edu.matc.entity.User;
+import org.apache.log4j.Logger;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -12,6 +13,8 @@ import java.util.List;
  * @author pwaite
  */
 public class UserData {
+
+    private final Logger logger = Logger.getLogger(UserData.class);
 
     public List<User> getAllUsers() {
         List<User> users = new ArrayList<User>();
@@ -30,9 +33,11 @@ public class UserData {
             }
             database.disconnect();
         } catch (SQLException e) {
-            System.out.println("SearchUser.getAllUsers()...SQL Exception: " + e);
+            logger.info("SearchUser.getAllUsers()...SQL Exception: " + e);
+            logger.error("SearchUser.getAllUsers()...SQL Exception: " + e);
         } catch (Exception e) {
-            System.out.println("SearchUser.getAllUsers()...Exception: " + e);
+            logger.info("SearchUser.getAllUsers()...Exception: " + e);
+            logger.error("SearchUser.getAllUsers()...Exception: " + e);
         }
         return users;
     }
@@ -56,9 +61,11 @@ public class UserData {
             }
             database.disconnect();
         } catch (SQLException e) {
-            System.out.println("SearchUser.getUserById()...SQL Exception: " + e);
+            logger.info("SearchUser.getUserById()...SQL Exception: " + e);
+            logger.error("SearchUser.getUserById()...SQL Exception: " + e);
         } catch (Exception e) {
-            System.out.println("SearchUser.getUserById()...Exception: " + e);
+            logger.info("SearchUser.getUserById()...Exception: " + e);
+            logger.error("SearchUser.getUserById()...Exception: " + e);
         }
         return users;
     }
@@ -81,9 +88,11 @@ public class UserData {
             }
             database.disconnect();
         } catch (SQLException e) {
-            System.out.println("SearchUser.getUserByLastName()...SQL Exception: " + e);
+            logger.info("SearchUser.getUserByLastName()...SQL Exception: " + e);
+            logger.error("SearchUser.getUserByLastName()...SQL Exception: " + e);
         } catch (Exception e) {
-            System.out.println("SearchUser.getUserByLastName()...Exception: " + e);
+            logger.info("SearchUser.getUserByLastName()...Exception: " + e);
+            logger.error("SearchUser.getUserByLastName()...Exception: " + e);
         }
         return users;
     }
@@ -95,6 +104,7 @@ public class UserData {
         user.setUserid(results.getString("id"));
         user.setFirstName(results.getString("first_name"));
         user.setDateOfBirth(results.getDate("date_of_birth"));
+        logger.info(user.toString());
         return user;
     }
 
