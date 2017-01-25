@@ -33,10 +33,8 @@ public class UserData {
             }
             database.disconnect();
         } catch (SQLException e) {
-            logger.info("SearchUser.getAllUsers()...SQL Exception: " + e);
             logger.error("SearchUser.getAllUsers()...SQL Exception: " + e);
         } catch (Exception e) {
-            logger.info("SearchUser.getAllUsers()...Exception: " + e);
             logger.error("SearchUser.getAllUsers()...Exception: " + e);
         }
         return users;
@@ -61,10 +59,8 @@ public class UserData {
             }
             database.disconnect();
         } catch (SQLException e) {
-            logger.info("SearchUser.getUserById()...SQL Exception: " + e);
             logger.error("SearchUser.getUserById()...SQL Exception: " + e);
         } catch (Exception e) {
-            logger.info("SearchUser.getUserById()...Exception: " + e);
             logger.error("SearchUser.getUserById()...Exception: " + e);
         }
         return users;
@@ -88,10 +84,8 @@ public class UserData {
             }
             database.disconnect();
         } catch (SQLException e) {
-            logger.info("SearchUser.getUserByLastName()...SQL Exception: " + e);
             logger.error("SearchUser.getUserByLastName()...SQL Exception: " + e);
         } catch (Exception e) {
-            logger.info("SearchUser.getUserByLastName()...Exception: " + e);
             logger.error("SearchUser.getUserByLastName()...Exception: " + e);
         }
         return users;
